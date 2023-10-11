@@ -2,7 +2,7 @@ const iconoThema = document.getElementById('iconThema');
 const cuerpo = document.body;
 const inputText = document.getElementById('inputText');
 const listTareas = document.getElementById('listTareas');
-
+const textInput = document.getElementById('textInput');
 // Variable para rastrear el estado actual
 let estadoTema = 'sol'; // Inicialmente, asumimos que está en modo "sol"
 
@@ -19,6 +19,11 @@ iconoThema.addEventListener('click', function() {
 
         listTareas.style.backgroundColor = 'white';
         inputText.style.backgroundColor = 'white';
+
+
+        
+        textInput.style.color = ' hsl(235, 19%, 35%)';
+        
         
     } else {
 
@@ -33,7 +38,10 @@ iconoThema.addEventListener('click', function() {
         listTareas.style.backgroundColor = 'hsl(235, 24%, 19%)';
         inputText.style.backgroundColor = 'hsl(235, 24%, 19%)';
         
-        console.log('sol')
+
+
+        //style text input
+        textInput.style.color = 'hsl(234, 39%, 85%)';
         
     }
 });

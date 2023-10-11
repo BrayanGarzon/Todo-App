@@ -10,7 +10,7 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     
     background-color: hsl(235, 21%, 11%);
     background-image: url('../images/bg-desktop-dark.jpg');
@@ -96,6 +96,7 @@ section .contenedor .inputText{
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 
 section .contenedor .inputText .checkbox{
@@ -107,6 +108,7 @@ section .contenedor .inputText .checkbox{
     cursor: pointer;
     margin-left: 30px;
     position: relative;
+    color: hsl(234, 39%, 85%);
 }
 
 .checkbox:checked::before {
@@ -131,6 +133,27 @@ section .contenedor .inputText .checkbox{
     background-repeat: no-repeat;
     width: 30px; 
     height: 30px;
+}
+
+section .contenedor .inputText .textInput{
+    width: calc(100% - 90px);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+    caret-color: hsl(220, 98%, 61%);
+    color: hsl(234, 39%, 85%);
+}
+section .contenedor .inputText .textInput::placeholder {
+    color: #999; /* Color del texto de ejemplo */
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 15px;
+    
+    
 }
 
 
