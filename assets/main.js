@@ -3,6 +3,7 @@ const cuerpo = document.body;
 const inputText = document.getElementById('inputText');
 const listTareas = document.getElementById('listTareas');
 const textInput = document.getElementById('textInput');
+const botones = document.querySelectorAll('button');
 // Variable para rastrear el estado actual
 let estadoTema = 'sol'; // Inicialmente, asumimos que está en modo "sol"
 
@@ -23,6 +24,11 @@ iconoThema.addEventListener('click', function() {
 
         
         textInput.style.color = ' hsl(235, 19%, 35%)';
+
+        //color de los botnes del comando
+        botones.forEach(function(button) {
+            button.style.color = 'hsl(235, 19%, 35%)';
+          });
         
         
     } else {
@@ -43,7 +49,40 @@ iconoThema.addEventListener('click', function() {
         //style text input
         textInput.style.color = 'hsl(234, 39%, 85%)';
         
+        //color de los botnes del comando
+        botones.forEach(function(button) {
+            button.style.color = 'hsl(234, 39%, 85%)';
+          });
     }
 });
 
 
+//SECTION CHECBOX AND INPUT TAREA
+
+
+const miCheckbox = document.getElementById("miCheckbox");
+const tarea = document.getElementById('textInput');
+
+miCheckbox.addEventListener("click", function() {
+  
+  if (miCheckbox.checked) {
+    const textoEscrito = tarea.value;
+    
+    console.log(textoEscrito);
+
+   
+
+    // Deseleccionar el checkbox después de 2 segundos
+    setTimeout(function() {
+    //limpiando el input
+    tarea.value = '';
+
+      miCheckbox.checked = false;
+    }, 500); // medio segundo
+  } else {
+
+    miCheckbox.value = '';
+    
+    console.log("El checkbox está desmarcado.");
+  }
+});
