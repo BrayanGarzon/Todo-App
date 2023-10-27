@@ -1,0 +1,9 @@
+{
+    "name": "Todo List",
+    "description": "En este proyecto de diseño web, hemos creado una aplicación de lista de tareas (todo list) utilizando las tecnologías web fundamentales: HTML, CSS y JavaScript. Esta aplicación proporciona una interfaz simple pero efectiva para que los usuarios gestionen sus tareas diarias.",
+    "image": "https://github.com/BrayanGarzon/DevOpsPageWeb/blob/main/imgWeb/imagenURL.png?raw=true",
+    "frameworks": ["Html", "JavaScript", "CSS"],
+    "url_repo": "https://github.com/BrayanGarzon/Todo-App.git",
+    "fecha": "30/10/2023"
+  }
+  
