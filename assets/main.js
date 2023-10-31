@@ -57,32 +57,52 @@ iconoThema.addEventListener('click', function() {
 });
 
 
-//SECTION CHECBOX AND INPUT TAREA
-
 
 const miCheckbox = document.getElementById("miCheckbox");
 const tarea = document.getElementById('textInput');
+const listadoDiv = document.querySelector('.listado');
+let contador = 0;
+const conteo = document.getElementById('conteo');
 
 miCheckbox.addEventListener("click", function() {
-  
   if (miCheckbox.checked) {
     const textoEscrito = tarea.value;
-    
-    console.log(textoEscrito);
 
+    // Insertar la tarea en el cuerpo
+    if (textoEscrito) {
+      contador++;
+
+      const tareaElement = document.createElement('div');
+      const checkbox = document.createElement('input'); // Crear el checkbox
+      checkbox.type = "checkbox"; // Establecer el tipo como "checkbox"
+
+
+      tareaElement.appendChild(checkbox);
+      tareaElement.appendChild(document.createTextNode(textoEscrito));
    
+
+      listadoDiv.appendChild(tareaElement);
+
+      // Actualizar el contador en el div 'conteo'
+      conteo.textContent = contador;
+    }
 
     // Deseleccionar el checkbox después de 2 segundos
     setTimeout(function() {
-    //limpiando el input
-    tarea.value = '';
-
+      // Limpiando el input
+      tarea.value = '';
       miCheckbox.checked = false;
-    }, 500); // medio segundo
+    }, 300); // medio segundo
   } else {
-
     miCheckbox.value = '';
-    
-    console.log("El checkbox está desmarcado.");
   }
 });
+
+// Esta sección incluye la tecla Enter
+tarea.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    miCheckbox.click(); // Simula hacer clic en el checkbox
+  }
+});
+
+

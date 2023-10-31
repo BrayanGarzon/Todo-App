@@ -168,6 +168,7 @@ section .contenedor .listTareas{
 }
 
 
+
 /*SECTION FOOTER*/
 .attribution{
     width: 100%;
@@ -192,8 +193,46 @@ section .contenedor .listTareas{
 
 .contenedor .listTareas .listado{
     width: 100%;
-    background-color: aqua;
     height: 90%;
+    overflow-y: hidden;
+}
+.contenedor .listTareas .listado:hover{
+    overflow-y: auto;
+}
+ 
+.listado::-webkit-scrollbar {
+    width: 0px; /* Ancho de la barra de desplazamiento */
+  }
+
+.contenedor .listTareas .listado div{
+    color: hsl(236, 33%, 92%);
+    width: auto;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    padding: 15px 0px 15px 30px;
+}
+
+
+.contenedor .listTareas .listado hr{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: hsl(236, 33%, 92%);
+}
+
+.contenedor .listTareas .control .numeroItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor .listTareas .control .numeroItems #conteo{
+    color: hsl(236, 33%, 92%);
+    font-size: 13px;
 }
 .contenedor .listTareas .control{
     width: 100%;
