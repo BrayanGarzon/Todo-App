@@ -308,3 +308,30 @@ button.active {
   }
   
   
+  @media screen and (max-width: 600px) {
+    body {
+      /* Estilos específicos para pantallas pequeñas */
+      background-image: url('../images/bg-mobile-dark.jpg');
+      background-size: cover;
+      background-size: 100% 300px;
+    }
+  
+    section .contenedor {
+      /* Estilos específicos para pantallas pequeñas */
+      width: 90%; /* Ancho más estrecho para ajustarse mejor en pantallas pequeñas */
+    }
+  
+    /* ... (otros estilos específicos para pantallas pequeñas) */
+    section .contenedor::before {
+        content: '';
+        position: absolute;
+        top: 34%;
+        width: 350px;
+        height: 439px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        border-radius: 5px;
+      }
+  }
+
+  
