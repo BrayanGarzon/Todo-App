@@ -143,7 +143,6 @@ section .contenedor .inputText .textInput{
     background: transparent;
     border: none;
     outline: none;
-    padding: 10px;
     font-size: 18px;
     caret-color: hsl(220, 98%, 61%);
     color: hsl(234, 39%, 85%);
@@ -201,20 +200,65 @@ section .contenedor .listTareas{
 }
  
 .listado::-webkit-scrollbar {
-    width: 0px; /* Ancho de la barra de desplazamiento */
+    width: 0px;
   }
 
 .contenedor .listTareas .listado div{
-    color: hsl(236, 33%, 92%);
+    color: hsl(234, 11%, 52%);
     width: auto;
     height: 30px;
     display: flex;
     align-items: center;
     flex-direction: row;
     cursor: pointer;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid hsl(234, 11%, 52%);
     padding: 15px 0px 15px 30px;
+    gap: 20px;
+    font-size: 20px;    
+    
 }
+
+.checkboxTarea{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid hsl(234, 11%, 52%);
+    appearance: none;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    color: hsl(234, 39%, 85%);
+    margin-right: 10px;
+}
+
+.checkboxTarea:checked::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: inherit;
+}
+
+.checkboxTarea:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-image: url('../images/icon-check.svg');
+    background-repeat: no-repeat;
+    width: 30px; 
+    height: 30px;
+}
+
+.tachado {
+    text-decoration: line-through;
+  }
+  
 
 
 .contenedor .listTareas .listado hr{
@@ -255,3 +299,12 @@ button{
     cursor: pointer;
     color: hsl(234, 39%, 85%);
 }
+
+
+
+/* Estilos para cambiar el color del texto */
+button.active {
+    color: hsl(220, 98%, 61%); /* Color del texto cuando el botón está activo */
+  }
+  
+  

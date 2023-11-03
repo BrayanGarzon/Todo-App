@@ -58,51 +58,90 @@ iconoThema.addEventListener('click', function() {
 
 
 
+
 const miCheckbox = document.getElementById("miCheckbox");
 const tarea = document.getElementById('textInput');
 const listadoDiv = document.querySelector('.listado');
-let contador = 0;
 const conteo = document.getElementById('conteo');
+const buttons = document.querySelectorAll('.comandos button');
+const clearCompletedButton = document.getElementById('clearCompleted');
+
+// Contador para el número de tareas pendientes
+let contador = 0;
 
 miCheckbox.addEventListener("click", function() {
   if (miCheckbox.checked) {
     const textoEscrito = tarea.value;
 
-    // Insertar la tarea en el cuerpo
     if (textoEscrito) {
-      contador++;
-
+      // Crear una tarea con un atributo personalizado "data-completed" en "false"
       const tareaElement = document.createElement('div');
-      const checkbox = document.createElement('input'); // Crear el checkbox
-      checkbox.type = "checkbox"; // Establecer el tipo como "checkbox"
-
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      checkbox.className = 'checkboxTarea';
 
       tareaElement.appendChild(checkbox);
       tareaElement.appendChild(document.createTextNode(textoEscrito));
-   
 
+      // Al hacer clic en el checkbox, cambiar el atributo "data-completed" y aplicar estilos
+      checkbox.addEventListener("click", function() {
+        tareaElement.setAttribute("data-completed", checkbox.checked);
+        if (checkbox.checked) {
+          tareaElement.style.textDecoration = "line-through";
+        } else {
+          tareaElement.style.textDecoration = "none";
+        }
+        actualizarContador();
+      });
+
+      tareaElement.setAttribute("data-completed", false);
       listadoDiv.appendChild(tareaElement);
-
-      // Actualizar el contador en el div 'conteo'
-      conteo.textContent = contador;
+      actualizarContador();
     }
 
-    // Deseleccionar el checkbox después de 2 segundos
-    setTimeout(function() {
-      // Limpiando el input
-      tarea.value = '';
-      miCheckbox.checked = false;
-    }, 300); // medio segundo
-  } else {
-    miCheckbox.value = '';
+    tarea.value = '';
+    miCheckbox.checked = false;
   }
 });
 
-// Esta sección incluye la tecla Enter
 tarea.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
-    miCheckbox.click(); // Simula hacer clic en el checkbox
+    miCheckbox.click();
   }
 });
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    filtrarTareas(button.getAttribute("data-filter"));
+  });
+});
+
+clearCompletedButton.addEventListener('click', () => {
+  const tareasCompletadas = document.querySelectorAll('[data-completed="true"]');
+  tareasCompletadas.forEach(tarea => tarea.remove());
+  actualizarContador();
+});
+
+function actualizarContador() {
+  const tareasPendientes = document.querySelectorAll('[data-completed="false"]').length;
+  conteo.textContent = tareasPendientes;
+}
+
+function filtrarTareas(filtro) {
+  const tareas = document.querySelectorAll('.listado div');
+  tareas.forEach(tarea => {
+    tarea.style.display = "flex"; // Mostrar todas las tareas por defecto
+    
+    if (filtro === "active" && tarea.getAttribute("data-completed") === "true") {
+      tarea.style.display = "none"; // Ocultar tareas completadas
+    }
+    if (filtro === "completed" && tarea.getAttribute("data-completed") === "false") {
+      tarea.style.display = "none"; // Ocultar tareas no completadas
+    }
+  });
+}
+
 
 
