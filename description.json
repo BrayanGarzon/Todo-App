@@ -4,6 +4,7 @@
     "image": "https://github.com/BrayanGarzon/Todo-App/blob/main/todoAPP.png?raw=true",
     "frameworks": ["Html", "JavaScript", "CSS"],
     "url_repo": "https://github.com/BrayanGarzon/Todo-App.git",
+    "url_live": "https://todo-app-five-xi-37.vercel.app/",
     "fecha": "30/10/2023"
   }
   
